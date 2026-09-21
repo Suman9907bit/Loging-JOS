@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>User Dashboard</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f3f6fb;
+    color:#182230;
+}
+
+/* =========================
+   LOGIN
+========================= */
+
+.login-page{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    background:
+    linear-gradient(135deg,#071a35,#0b5ed7,#06162c);
+}
+
+.login-box{
+    width:100%;
+    max-width:430px;
+    background:white;
+    border-radius:22px;
+    padding:32px;
+    box-shadow:0 25px 70px rgba(0,0,0,.4);
+}
+
+.login-logo{
+    width:75px;
+    height:75px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#0b5ed7,#003b8f);
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:32px;
+    margin:0 auto 18px;
+}
+
+.login-box h1{
+    text-align:center;
+    font-size:26px;
+    margin-bottom:7px;
+}
+
+.login-box p{
+    text-align:center;
+    color:#777;
+    margin-bottom:25px;
+}
+
+.login-group{
+    margin-bottom:17px;
+}
+
+.login-group label{
+    display:block;
+    font-weight:bold;
+    margin-bottom:7px;
+    font-size:14px;
+}
+
+.login-group input{
+    width:100%;
+    padding:14px;
+    border:1px solid #d5dbe3;
+    border-radius:10px;
+    outline:none;
+    font-size:15px;
+}
+
+.login-group input:focus{
+    border-color:#0b5ed7;
+    box-shadow:0 0 0 3px rgba(11,94,215,.1);
+}
+
+.login-btn{
+    width:100%;
+    border:0;
+    padding:14px;
+    background:linear-gradient(135deg,#0b5ed7,#003b8f);
+    color:white;
+    border-radius:10px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.login-message{
+    display:none;
+    padding:12px;
+    border-radius:8px;
+    margin-bottom:15px;
+    text-align:center;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.login-error{
+    background:#fee2e2;
+    color:#b91c1c;
+}
+
+.login-info{
+    margin-top:18px;
+    text-align:center;
+    font-size:12px;
+    color:#777;
+}
+
+
+/* =========================
+   DASHBOARD
+========================= */
+
+.dashboard{
+    display:none;
+    min-height:100vh;
+}
+
+
+/* TOP PROFILE BAR */
+
+.topbar{
+    background:white;
+    height:78px;
+    padding:0 25px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    box-shadow:0 3px 15px rgba(0,0,0,.08);
+
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.site-name{
+    font-size:20px;
+    font-weight:bold;
+    color:#0b5ed7;
+}
+
+.user-mini{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    cursor:pointer;
+}
+
+.user-photo{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid #0b5ed7;
+}
+
+.user-mini-info{
+    line-height:1.3;
+}
+
+.user-mini-name{
+    font-weight:bold;
+    font-size:14px;
+}
+
+.online{
+    color:#16a34a;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.online-dot{
+    display:inline-block;
+    width:8px;
+    height:8px;
+    background:#16a34a;
+    border-radius:50%;
+    margin-right:4px;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+.main{
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+}
+
+
+/* =========================
+   PROFILE POPUP
+========================= */
+
+.profile-card{
+    display:none;
+    background:white;
+    border-radius:18px;
+    padding:25px;
+    margin-bottom:20px;
+    box-shadow:0 5px 25px rgba(0,0,0,.08);
+}
+
+.profile-top{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    margin-bottom:20px;
+}
+
+.big-photo{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid #0b5ed7;
+}
+
+.profile-name{
+    font-size:23px;
+    font-weight:bold;
+}
+
+.profile-id{
+    color:#777;
+    margin-top:4px;
+}
+
+.profile-details{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+.profile-detail{
+    background:#f7f9fc;
+    padding:13px;
+    border-radius:9px;
+}
+
+.profile-detail small{
+    display:block;
+    color:#777;
+    margin-bottom:4px;
+}
+
+.profile-detail strong{
+    font-size:14px;
+}
+
+
+/* =========================
+   BANNER
+========================= */
+
+.banner{
+    min-height:280px;
+    border-radius:20px;
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+        90deg,
+        rgba(3,20,50,.95),
+        rgba(3,65,130,.7),
+        rgba(0,0,0,.25)
+    ),
+    url("https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&w=1400&q=80");
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    align-items:center;
+
+    padding:40px;
+    color:white;
+
+    margin-bottom:25px;
+}
+
+.banner-content{
+    max-width:600px;
+}
+
+.banner-content small{
+    background:rgba(255,255,255,.15);
+    padding:7px 12px;
+    border-radius:20px;
+}
+
+.banner-content h1{
+    font-size:38px;
+    margin:15px 0 10px;
+}
+
+.banner-content p{
+    font-size:15px;
+    line-height:1.6;
+    opacity:.9;
+}
+
+
+/* =========================
+   SERVICES
+========================= */
+
+.section-title{
+    margin-bottom:17px;
+}
+
+.section-title h2{
+    font-size:24px;
+}
+
+.section-title p{
+    color:#777;
+    margin-top:5px;
+}
+
+.services{
+    display:grid;
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:18px;
+}
+
+.service{
+    background:white;
+    border-radius:16px;
+    padding:22px;
+
+    box-shadow:
+    0 5px 20px rgba(0,0,0,.06);
+
+    transition:.2s;
+
+    border:1px solid #edf0f4;
+}
+
+.service:hover{
+    transform:translateY(-4px);
+    box-shadow:
+    0 12px 30px rgba(0,0,0,.1);
+}
+
+.service-icon{
+    width:55px;
+    height:55px;
+    border-radius:13px;
+
+    background:#eaf2ff;
+    color:#0b5ed7;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:27px;
+
+    margin-bottom:15px;
+}
+
+.service h3{
+    font-size:18px;
+    margin-bottom:8px;
+}
+
+.service p{
+    color:#777;
+    font-size:13px;
+    line-height:1.5;
+    min-height:40px;
+}
+
+.service-btn{
+    margin-top:17px;
+    width:100%;
+    padding:11px;
+
+    border:0;
+    border-radius:8px;
+
+    background:#0b5ed7;
+    color:white;
+
+    font-weight:bold;
+    cursor:pointer;
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+.logout-btn{
+    border:0;
+    background:#fee2e2;
+    color:#b91c1c;
+    padding:9px 13px;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:800px){
+
+    .services{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .banner{
+        min-height:240px;
+        padding:28px;
+    }
+
+    .banner-content h1{
+        font-size:30px;
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    .topbar{
+        height:70px;
+        padding:0 13px;
+    }
+
+    .site-name{
+        font-size:16px;
+    }
+
+    .user-mini-info{
+        display:none;
+    }
+
+    .user-photo{
+        width:45px;
+        height:45px;
+    }
+
+    .main{
+        padding:13px;
+    }
+
+    .banner{
+        min-height:260px;
+        padding:25px;
+    }
+
+    .banner-content h1{
+        font-size:27px;
+    }
+
+    .services{
+        grid-template-columns:1fr;
+    }
+
+    .profile-details{
+        grid-template-columns:1fr;
+    }
+
+}
+.login-links {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.login-links a {
+  text-decoration: none;
+  text-align: center;
+  padding: 11px;
+  border-radius: 8px;
+  font-weight: 600;
+  display: block;
+}
+
+.signup-btn {
+  color: #008b8b;
+  border: 1px solid #008b8b;
+}
+
+.status-btn {
+  color: #334155;
+  border: 1px solid #cbd5e1;
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     LOGIN PAGE
+========================= -->
+
+<section class="login-page" id="loginPage">
+
+    <div class="login-box">
+
+        <div class="login-logo">
+            👤
+        </div>
+
+        <h1>User Login</h1>
+
+        <p>Login to access your profile</p>
+
+
+        <div
+            id="loginMessage"
+            class="login-message">
+        </div>
+
+
+        <form id="loginForm">
+
+            <div class="login-group">
+
+                <label>User ID</label>
+
+                <input
+                    type="text"
+                    id="loginUserId"
+                    placeholder="Enter User ID"
+                    required>
+
+            </div>
+
+
+            <div class="login-group">
+
+                <label>Password</label>
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Enter Password"
+                    required>
+
+            </div>
+
+
+            <button
+                class="login-btn"
+                type="submit">
+
+                LOGIN
+
+            </button>
+
+        </form>
+
+ <div class="login-links">
+
+  <a href="https://suman9907bit.github.io/Registration-jos/" class="signup-btn">
+    👤 Sign Up / Registration Now
+  </a>
+
+  <a href="https://suman9907bit.github.io/Registration-jos/" class="status-btn">
+    📋 Application Status
+  </a>
+
+</div>
+
+
+        <div class="login-info">
+
+            Your account must be activated by Admin
+            before login.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     DASHBOARD
+========================= -->
+
+<section
+    class="dashboard"
+    id="dashboard">
+
+
+    <!-- TOP BAR -->
+
+    <header class="topbar">
+
+        <div class="site-name">
+            USER PORTAL
+        </div>
+
+
+        <div
+            class="user-mini"
+            onclick="toggleProfile()">
+
+
+            <img
+                id="miniPhoto"
+                class="user-photo"
+                src="">
+
+
+            <div class="user-mini-info">
+
+                <div
+                    id="miniName"
+                    class="user-mini-name">
+                </div>
+
+                <div class="online">
+
+                    <span class="online-dot"></span>
+
+                    Online
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+
+        <!-- PROFILE -->
+
+        <div
+            class="profile-card"
+            id="profileCard">
+
+
+            <div class="profile-top">
+
+                <img
+                    id="bigPhoto"
+                    class="big-photo"
+                    src="">
+
+
+                <div>
+
+                    <div
+                        id="profileName"
+                        class="profile-name">
+                    </div>
+
+                    <div
+                        id="profileId"
+                        class="profile-id">
+                    </div>
+
+                    <div class="online">
+
+                        🟢 Account Active
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="profile-details">
+
+
+                <div class="profile-detail">
+
+                    <small>Full Name</small>
+
+                    <strong id="dName"></strong>
+
+                </div>
+
+
+                <div class="profile-detail">
+
+                    <small>Date of Birth</small>
+
+                    <strong id="dDob"></strong>
+
+                </div>
+
+
+                <div class="profile-detail">
+
+                    <small>Email</small>
+
+                    <strong id="dEmail"></strong>
+
+                </div>
+
+
+                <div class="profile-detail">
+
+                    <small>Work Type</small>
+
+                    <strong id="dWork"></strong>
+
+                </div>
+
+
+                <div class="profile-detail">
+
+                    <small>Address</small>
+
+                    <strong id="dAddress"></strong>
+
+                </div>
+
+
+                <div class="profile-detail">
+
+                    <small>Aadhaar</small>
+
+                    <strong id="dAadhaar"></strong>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- WEB BANNER -->
+
+        <div class="banner">
+
+            <div class="banner-content">
+
+                <small>
+                    ✦ USER SERVICE PORTAL
+                </small>
+
+                <h1>
+                    Welcome to Your Dashboard
+                </h1>
+
+       
+
+                <p>
+                    Access your available work and
+                    services from one secure place.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SERVICES -->
+
+        <div class="section-title">
+
+            <h2>
+                Available Services
+            </h2>
+
+            <p>
+                Select a service to continue
+            </p>
+
+        </div>
+
+
+        <div
+            class="services"
+            id="services">
+
+
+            <!-- SERVICE 1 -->
+
+            <div class="service">
+
+                <div class="service-icon">
+                    📄
+                </div>
+
+                <h3>
+                    Document Service
+                </h3>
+
+                <p>
+                    Submit and manage your
+                    required documents.
+                </p>
+
+                <button
+                    class="service-btn"
+                    onclick="serviceMessage('Document Service')">
+
+                    Open Service
+
+                </button>
+
+            </div>
+
+
+            <!-- SERVICE 2 -->
+
+            <div class="service">
+
+                <div class="service-icon">
+                    💼
+                </div>
+
+                <h3>
+                    Work Service
+                </h3>
+
+                <p>
+                    View available work and
+                    service information.
+                </p>
+
+                <button
+                    class="service-btn"
+                    onclick="serviceMessage('Work Service')">
+
+                    Open Service
+
+                </button>
+
+            </div>
+
+
+            <!-- SERVICE 3 -->
+
+            <div class="service">
+
+                <div class="service-icon">
+                    📋
+                </div>
+
+                <h3>
+                    Application Service
+                </h3>
+
+                <p>
+                    Manage your applications
+                    and requests.
+                </p>
+
+                <button
+                    class="service-btn"
+                    onclick="serviceMessage('Application Service')">
+
+                    Open Service
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+        <br>
+
+        <button
+            class="logout-btn"
+            onclick="logout()">
+
+            🚪 Logout
+
+        </button>
+
+
+    </main>
+
+</section>
+
+
+
+<script>
+/* =========================================================
+   USER LOGIN PORTAL
+   Google Sheet + Admin Panel API
+   ========================================================= */
+
+/* এখানে আপনার Apps Script Web App URL বসান */
+const API_URL = "https://script.google.com/macros/s/AKfycbzqJXVKb-rRJcka2PK7TWGjP2Wv39MUNmWQVEZo3RNvwjNvH3NqCZfOafRUT8JV2Cw/exec";
+
+
+/* =========================
+   API HELPERS
+========================= */
+
+async function apiPost(data) {
+    const response = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "text/plain;charset=utf-8"
+        },
+        body: JSON.stringify(data)
+    });
+
+    return await response.json();
+}
+
+
+/* =========================
+   LOGIN
+========================= */
+
+const loginForm =
+    document.getElementById("loginForm");
+
+loginForm.addEventListener("submit", async function(e) {
+
+    e.preventDefault();
+
+    const userId =
+        document.getElementById("loginUserId").value.trim();
+
+    const password =
+        document.getElementById("loginPassword").value;
+
+    if (!userId || !password) {
+        showLoginMessage("User ID and Password দিন।");
+        return;
+    }
+
+    const button =
+        loginForm.querySelector(".login-btn");
+
+    const oldText = button.textContent;
+
+    button.disabled = true;
+    button.textContent = "LOGGING IN...";
+
+    try {
+
+        const result = await apiPost({
+            action: "login",
+            ProfileID: userId,
+            Password: password
+        });
+
+        if (!result.success) {
+            showLoginMessage(result.message || "Invalid User ID or Password.");
+            return;
+        }
+
+        /*
+          Session-এ password রাখা হচ্ছে না।
+          শুধু ProfileID রাখা হচ্ছে।
+        */
+        sessionStorage.setItem(
+            "loggedInProfileID",
+            result.user.ProfileID
+        );
+
+        openDashboard(result.user);
+
+    } catch (error) {
+
+        showLoginMessage(
+            "Server connection failed. Apps Script URL এবং deployment check করুন."
+        );
+
+        console.error(error);
+
+    } finally {
+
+        button.disabled = false;
+        button.textContent = oldText;
+
+    }
+
+});
+
+
+/* =========================
+   OPEN DASHBOARD
+========================= */
+
+function openDashboard(user) {
+
+    document.getElementById("loginPage").style.display = "none";
+    document.getElementById("dashboard").style.display = "block";
+
+    const photo =
+        user.Photo ||
+        "https://via.placeholder.com/120?text=USER";
+
+    /* TOP PROFILE */
+
+    document.getElementById("miniName").textContent =
+        user.Name || "User";
+
+    document.getElementById("miniPhoto").src = photo;
+
+    /* PROFILE */
+
+    document.getElementById("bigPhoto").src = photo;
+
+    document.getElementById("profileName").textContent =
+        user.Name || "";
+
+    document.getElementById("profileId").textContent =
+        "User ID: " + (user.ProfileID || "");
+
+    document.getElementById("dName").textContent =
+        user.Name || "";
+
+    document.getElementById("dDob").textContent =
+        user.DOB || "Not provided";
+
+    document.getElementById("dEmail").textContent =
+        user.Email || "Not provided";
+
+    document.getElementById("dWork").textContent =
+        user.Service || "Not provided";
+
+    document.getElementById("dAddress").textContent =
+        user.Address || "Not provided";
+
+    /* Aadhaar may not exist in the original 9-column sheet */
+    const aadhaarElement =
+        document.getElementById("dAadhaar");
+
+    if (aadhaarElement) {
+        aadhaarElement.textContent =
+            user.Aadhaar
+                ? maskAadhaar(user.Aadhaar)
+                : "Not provided";
+    }
+
+    loadServices(user);
+
+}
+
+
+/* =========================
+   PROFILE CLICK
+========================= */
+
+function toggleProfile() {
+
+    const profile =
+        document.getElementById("profileCard");
+
+    if (profile.style.display === "block") {
+        profile.style.display = "none";
+    } else {
+        profile.style.display = "block";
+    }
+
+}
+
+
+/* =========================
+   LOGIN MESSAGE
+========================= */
+
+function showLoginMessage(text) {
+
+    const box =
+        document.getElementById("loginMessage");
+
+    box.textContent = text;
+
+    box.className =
+        "login-message login-error";
+
+    box.style.display = "block";
+
+}
+
+
+/* =========================
+   SERVICES FROM GOOGLE SHEET/API
+========================= */
+
+async function loadServices(user) {
+
+    const container =
+        document.getElementById("services");
+
+    try {
+
+        const response =
+            await fetch(
+                API_URL + "?action=getServices"
+            );
+
+        const result =
+            await response.json();
+
+        if (!result.success) {
+            throw new Error(result.message || "Unable to load services.");
+        }
+
+        const services =
+            result.services || [];
+
+        const permissions =
+            user.permissions || {};
+
+        container.innerHTML = "";
+
+        services.forEach(function(service) {
+
+            /*
+              Admin permission:
+              undefined = allowed by default
+              false = blocked
+              true = allowed
+            */
+            const allowed =
+                permissions[service.id] !== false;
+
+            if (!allowed) return;
+
+            const div =
+                document.createElement("div");
+
+            div.className = "service";
+
+            const icon =
+                document.createElement("div");
+
+            icon.className = "service-icon";
+            icon.textContent =
+                service.icon || "⚙️";
+
+            const title =
+                document.createElement("h3");
+
+            title.textContent =
+                service.name || "Service";
+
+            const description =
+                document.createElement("p");
+
+            description.textContent =
+                service.description || "";
+
+            const button =
+                document.createElement("button");
+
+            button.className = "service-btn";
+            button.textContent = "Open Service";
+
+            button.addEventListener(
+                "click",
+                function() {
+                    serviceMessage(service.name);
+                }
+            );
+
+            div.appendChild(icon);
+            div.appendChild(title);
+            div.appendChild(description);
+            div.appendChild(button);
+
+            container.appendChild(div);
+
+        });
+
+        if (!container.children.length) {
+
+            container.innerHTML = `
+                <div class="service"
+                     style="grid-column:1/-1;text-align:center;">
+                    <div class="service-icon"
+                         style="margin:0 auto 15px;">
+                        🔒
+                    </div>
+                    <h3>No Service Available</h3>
+                    <p>
+                        Admin has not assigned any service
+                        to your account yet.
+                    </p>
+                </div>
+            `;
+
+        }
+
+    } catch (error) {
+
+        console.error(error);
+
+        /*
+          API না চললে original 3 services দেখানো হবে না।
+          এতে ভুল করে restricted service দেখাবে না।
+        */
+        container.innerHTML = `
+            <div class="service"
+                 style="grid-column:1/-1;text-align:center;">
+                <div class="service-icon"
+                     style="margin:0 auto 15px;">
+                    ⚠️
+                </div>
+                <h3>Service Loading Failed</h3>
+                <p>
+                    Please contact Admin.
+                </p>
+            </div>
+        `;
+
+    }
+
+}
+
+
+/* =========================
+   SERVICE
+========================= */
+
+function serviceMessage(name) {
+
+    alert(
+        name +
+        " selected.\n\n" +
+        "This service will be connected in the next step."
+    );
+
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+function logout() {
+
+    sessionStorage.removeItem(
+        "loggedInProfileID"
+    );
+
+    location.reload();
+
+}
+
+
+/* =========================
+   AUTO LOGIN
+========================= */
+
+window.addEventListener(
+    "load",
+    async function() {
+
+        const profileId =
+            sessionStorage.getItem(
+                "loggedInProfileID"
+            );
+
+        /*
+          Browser refresh-এ dashboard রাখতে চাইলে
+          server থেকে user আবার verify করা দরকার।
+          তাই getUser API ব্যবহার করা হচ্ছে।
+        */
+
+        if (!profileId) return;
+
+        try {
+
+            const response =
+                await fetch(
+                    API_URL +
+                    "?action=getUser&profileId=" +
+                    encodeURIComponent(profileId)
+                );
+
+            const result =
+                await response.json();
+
+            if (
+                result.success &&
+                result.user &&
+                String(result.user.Status).toUpperCase() === "ACTIVE"
+            ) {
+
+                openDashboard(result.user);
+
+            } else {
+
+                sessionStorage.removeItem(
+                    "loggedInProfileID"
+                );
+
+            }
+
+        } catch (error) {
+
+            console.error(
+                "Auto login failed:",
+                error
+            );
+
+            sessionStorage.removeItem(
+                "loggedInProfileID"
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================
+   AADHAAR MASK
+========================= */
+
+function maskAadhaar(value) {
+
+    const clean =
+        String(value).replace(/\D/g, "");
+
+    if (clean.length !== 12) {
+        return "********";
+    }
+
+    return "********" + clean.substring(8);
+
+}
+</script>
+
+</body>
+</html>
