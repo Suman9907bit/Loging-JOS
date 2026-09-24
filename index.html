@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-
+    
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -142,7 +142,14 @@ body{
 /* TOP PROFILE BAR */
 
 .topbar{
-    background:white;
+    background:linear-gradient(
+        90deg,
+        #087f8c,
+        #0097a7,
+        #006b78
+    );
+
+    
     height:78px;
     padding:0 25px;
 
@@ -158,9 +165,10 @@ body{
 }
 
 .site-name{
-    font-size:20px;
+    font-size:27px;
+    color:#fff;
     font-weight:bold;
-    color:#0b5ed7;
+    
 }
 
 .user-mini{
@@ -279,52 +287,7 @@ body{
    BANNER
 ========================= */
 
-.banner{
-    min-height:280px;
-    border-radius:20px;
-    overflow:hidden;
 
-    background:
-    linear-gradient(
-        90deg,
-        rgba(3,20,50,.95),
-        rgba(3,65,130,.7),
-        rgba(0,0,0,.25)
-    ),
-    url("https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&w=1400&q=80");
-
-    background-size:cover;
-    background-position:center;
-
-    display:flex;
-    align-items:center;
-
-    padding:40px;
-    color:white;
-
-    margin-bottom:25px;
-}
-
-.banner-content{
-    max-width:600px;
-}
-
-.banner-content small{
-    background:rgba(255,255,255,.15);
-    padding:7px 12px;
-    border-radius:20px;
-}
-
-.banner-content h1{
-    font-size:38px;
-    margin:15px 0 10px;
-}
-
-.banner-content p{
-    font-size:15px;
-    line-height:1.6;
-    opacity:.9;
-}
 
 
 /* =========================
@@ -627,9 +590,21 @@ body{
     <!-- TOP BAR -->
 
     <header class="topbar">
+        
 
-        <div class="site-name">
-            USER PORTAL
+        <div >
+            <div
+                class="site-name"
+                    id="miniName"
+                    >
+                </div>
+            <div class="online">
+
+                    <span class="online-dot"></span>
+
+                    Online 
+
+                </div>
         </div>
 
 
@@ -641,7 +616,7 @@ body{
             <img
                 id="miniPhoto"
                 class="user-photo"
-                src="">
+                src="https://cdn-icons-png.freepik.com/512/7084/7084424.png">
 
 
             <div class="user-mini-info">
@@ -684,7 +659,7 @@ body{
                 <img
                     id="bigPhoto"
                     class="big-photo"
-                    src="">
+                   src="https://cdn-icons-png.freepik.com/512/7084/7084424.png">
 
 
                 <div>
@@ -774,29 +749,2258 @@ body{
 
 
         <!-- WEB BANNER -->
+        
+<style>
 
-        <div class="banner">
+/* =========================
+   RESET
+========================= */
 
-            <div class="banner-content">
 
-                <small>
-                    ✦ USER SERVICE PORTAL
-                </small>
 
-                <h1>
-                    Welcome to Your Dashboard
-                </h1>
+/* =========================
+   BANNER
+========================= */
 
-       
 
-                <p>
-                    Access your available work and
-                    services from one secure place.
+
+/* =========================
+   WELCOME BAR
+========================= */
+
+.welcome-bar{
+    width:100%;
+    background:linear-gradient(
+        90deg,
+        #087f8c,
+        #0097a7,
+        #006b78
+    );
+
+    color:#fff;
+    padding:10px 0;
+
+    font-size:14px;
+    font-weight:600;
+
+    overflow:hidden;
+}
+
+.welcome-text{
+    display:inline-block;
+    white-space:nowrap;
+
+    animation:
+        marquee 20s linear infinite;
+}
+
+@keyframes marquee{
+
+    0%{
+        transform:translateX(100%);
+    }
+
+    100%{
+        transform:translateX(-100%);
+    }
+
+}
+
+
+/* =========================
+   MAIN SECTION
+========================= */
+
+.service-section{
+
+    width:100%;
+
+    padding:
+        35px
+        18px
+        50px;
+
+    background:
+
+        radial-gradient(
+            circle at top left,
+            rgba(0,151,167,.08),
+            transparent 35%
+        ),
+
+        #f4f8fb;
+}
+
+
+.service-container{
+
+    max-width:1250px;
+
+    margin:auto;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.service-header{
+
+    text-align:center;
+
+    margin-bottom:28px;
+}
+
+
+.service-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+    gap:7px;
+
+    padding:7px 14px;
+
+    border-radius:30px;
+
+    background:#e5f8fa;
+
+    color:#007987;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+}
+
+
+.service-header h1{
+
+    font-size:
+        clamp(25px,4vw,38px);
+
+    color:#12384a;
+
+    margin-bottom:8px;
+}
+
+
+.service-header h1 span{
+
+    color:#0097a7;
+}
+
+
+.service-header p{
+
+    max-width:680px;
+
+    margin:auto;
+
+    color:#667786;
+
+    font-size:15px;
+
+    line-height:1.6;
+}
+
+
+/* =========================
+   TOOLBAR
+========================= */
+
+.service-toolbar{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    margin-bottom:22px;
+
+    flex-wrap:wrap;
+}
+
+
+.service-count{
+
+    color:#587080;
+
+    font-size:14px;
+
+    font-weight:600;
+}
+
+
+.search-box{
+
+    position:relative;
+
+    width:
+        min(100%,320px);
+}
+
+
+.search-box input{
+
+    width:100%;
+
+    padding:
+        12px
+        15px
+        12px
+        42px;
+
+    border:1px solid #d8e5eb;
+
+    border-radius:12px;
+
+    outline:none;
+
+    background:#fff;
+
+    color:#183142;
+
+    font-size:14px;
+
+    box-shadow:
+        0 4px 15px
+        rgba(20,60,80,.05);
+
+    transition:.25s;
+}
+
+
+.search-box input:focus{
+
+    border-color:#00a0b0;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(0,160,176,.10);
+}
+
+
+.search-icon{
+
+    position:absolute;
+
+    left:15px;
+    top:50%;
+
+    transform:
+        translateY(-50%);
+
+    color:#0097a7;
+
+    font-size:17px;
+}
+
+
+/* =========================
+   SERVICE GRID
+========================= */
+
+.service-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:18px;
+}
+
+
+/* =========================
+   SERVICE CARD
+========================= */
+
+.service-card{
+
+    position:relative;
+
+    background:#fff;
+
+    border:
+        1px solid
+        #e2edf1;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    cursor:pointer;
+
+    overflow:hidden;
+
+    min-height:145px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    box-shadow:
+        0 7px 25px
+        rgba(23,72,91,.07);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease;
+}
+
+
+.service-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:100%;
+    height:4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #008b9a,
+            #00b8c8
+        );
+
+    transform:
+        scaleX(0);
+
+    transform-origin:left;
+
+    transition:.3s;
+}
+
+
+.service-card:hover{
+
+    transform:
+        translateY(-7px);
+
+    border-color:#b9e4e9;
+
+    box-shadow:
+        0 16px 35px
+        rgba(0,111,130,.13);
+}
+
+
+.service-card:hover::before{
+
+    transform:
+        scaleX(1);
+}
+
+
+/* =========================
+   ICON
+========================= */
+
+.service-icon{
+
+    width:52px;
+    height:52px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e3f9fb,
+            #c9f0f3
+        );
+
+    color:#007d8b;
+
+    font-size:25px;
+
+    margin-bottom:15px;
+
+    transition:.25s;
+}
+
+
+.service-card:hover
+.service-icon{
+
+    transform:
+        scale(1.08)
+        rotate(-3deg);
+
+    background:
+        linear-gradient(
+            135deg,
+            #008b9a,
+            #00aebd
+        );
+
+    color:#fff;
+}
+
+
+/* =========================
+   CARD CONTENT
+========================= */
+
+.service-card h3{
+
+    font-size:16px;
+
+    color:#173d4d;
+
+    margin-bottom:5px;
+
+    line-height:1.3;
+}
+
+
+.service-card p{
+
+    color:#718390;
+
+    font-size:12.5px;
+
+    line-height:1.4;
+}
+
+
+/* =========================
+   CARD FOOTER
+========================= */
+
+.card-footer{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-top:16px;
+
+    color:#0093a2;
+
+    font-size:12px;
+
+    font-weight:700;
+}
+
+
+.card-arrow{
+
+    width:27px;
+    height:27px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:#edf9fa;
+
+    transition:.25s;
+}
+
+
+.service-card:hover
+.card-arrow{
+
+    background:#0097a7;
+
+    color:#fff;
+
+    transform:
+        translateX(3px);
+}
+
+
+/* =========================
+   NO RESULT
+========================= */
+
+.no-result{
+
+    display:none;
+
+    text-align:center;
+
+    padding:40px 20px;
+
+    background:#fff;
+
+    border-radius:15px;
+
+    color:#718390;
+
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.modal-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:9999;
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:15px;
+
+    background:
+        rgba(8,28,39,.68);
+
+    backdrop-filter:
+        blur(5px);
+}
+
+
+.modal-overlay.active{
+
+    display:flex;
+
+    animation:
+        fadeIn .2s ease;
+}
+
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+}
+
+
+.service-modal{
+
+    width:100%;
+
+    max-width:760px;
+
+    max-height:
+        90vh;
+
+    overflow:hidden;
+
+    background:#fff;
+
+    border-radius:20px;
+
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,.30);
+
+    animation:
+        modalOpen .25s ease;
+}
+
+
+@keyframes modalOpen{
+
+    from{
+        opacity:0;
+        transform:
+            translateY(25px)
+            scale(.97);
+    }
+
+    to{
+        opacity:1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================
+   MODAL HEADER
+========================= */
+
+.modal-header{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    padding:20px 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #007d8b,
+            #00a5b5
+        );
+
+    color:#fff;
+}
+
+
+.modal-title-area{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:13px;
+}
+
+
+.modal-icon{
+
+    width:48px;
+    height:48px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:
+        rgba(255,255,255,.17);
+
+    border-radius:13px;
+
+    font-size:23px;
+}
+
+
+.modal-header h2{
+
+    font-size:19px;
+
+    margin:0 0 3px;
+}
+
+
+.modal-header p{
+
+    font-size:12px;
+
+    opacity:.85;
+}
+
+
+.close-btn{
+
+    border:0;
+
+    width:38px;
+    height:38px;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.14);
+
+    color:#fff;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+
+.close-btn:hover{
+
+    background:
+        rgba(255,255,255,.25);
+
+    transform:
+        rotate(90deg);
+}
+
+
+/* =========================
+   MODAL BODY
+========================= */
+
+.modal-body{
+
+    padding:20px;
+
+    max-height:
+        55vh;
+
+    overflow-y:auto;
+}
+
+
+.modal-label{
+
+    color:#526875;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    margin-bottom:12px;
+}
+
+
+.link-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:12px;
+}
+
+
+.service-link{
+
+    display:block;
+
+    text-decoration:none;
+
+    padding:15px;
+
+    border:
+        1px solid
+        #e2edf1;
+
+    border-radius:13px;
+
+    background:#f9fcfd;
+
+    transition:.22s;
+}
+
+
+.service-link:hover{
+
+    transform:
+        translateY(-3px);
+
+    background:#fff;
+
+    border-color:#9edbe1;
+
+    box-shadow:
+        0 8px 20px
+        rgba(0,130,145,.10);
+}
+
+
+.service-link strong{
+
+    display:block;
+
+    color:#007f8d;
+
+    font-size:13px;
+
+    margin-bottom:5px;
+}
+
+
+.service-link span{
+
+    display:block;
+
+    color:#748591;
+
+    font-size:11px;
+
+    line-height:1.4;
+}
+
+
+/* =========================
+   MODAL FOOTER
+========================= */
+
+.modal-footer{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:12px;
+
+    padding:15px 20px;
+
+    border-top:
+        1px solid
+        #e8eef1;
+
+    background:#fbfdfe;
+
+    flex-wrap:wrap;
+}
+
+
+.contact-buttons{
+
+    display:flex;
+
+    gap:8px;
+
+    flex-wrap:wrap;
+}
+
+
+.contact-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    text-decoration:none;
+
+    padding:10px 14px;
+
+    border-radius:10px;
+
+    font-size:13px;
+
+    font-weight:700;
+}
+
+
+.call-btn{
+
+    color:#007989;
+
+    background:#e5f7f9;
+
+}
+
+
+.whatsapp-btn{
+
+    color:#fff;
+
+    background:#0097a7;
+
+}
+
+
+.modal-note{
+
+    font-size:11px;
+
+    color:#7b8c96;
+}
+
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+.modal-body::-webkit-scrollbar{
+
+    width:6px;
+}
+
+
+.modal-body::-webkit-scrollbar-thumb{
+
+    background:#b9dfe3;
+
+    border-radius:10px;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:1050px){
+
+    .service-grid{
+
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+    .banner img{
+
+        height:210px;
+    }
+
+    .service-section{
+
+        padding:
+            25px 12px 40px;
+    }
+
+    .service-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+        gap:12px;
+    }
+
+    .service-card{
+
+        padding:15px;
+
+        min-height:145px;
+
+        border-radius:15px;
+    }
+
+    .service-icon{
+
+        width:45px;
+        height:45px;
+
+        font-size:21px;
+
+        margin-bottom:12px;
+    }
+
+    .service-card h3{
+
+        font-size:14px;
+    }
+
+    .service-card p{
+
+        font-size:11px;
+    }
+
+    .link-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .modal-header{
+
+        padding:16px;
+    }
+
+    .modal-body{
+
+        padding:15px;
+    }
+
+    .modal-footer{
+
+        padding:13px 15px;
+    }
+
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media(max-width:420px){
+
+    .banner img{
+
+        height:175px;
+    }
+
+    .welcome-bar{
+
+        font-size:12px;
+    }
+
+    .service-header{
+
+        margin-bottom:20px;
+    }
+
+    .service-header p{
+
+        font-size:13px;
+    }
+
+    .service-toolbar{
+
+        display:block;
+    }
+
+    .service-count{
+
+        margin-bottom:10px;
+    }
+
+    .search-box{
+
+        width:100%;
+    }
+
+    .service-grid{
+
+        gap:9px;
+    }
+
+    .service-card{
+
+        padding:13px;
+
+        min-height:138px;
+    }
+
+    .service-icon{
+
+        width:40px;
+        height:40px;
+
+        font-size:19px;
+    }
+
+    .service-card h3{
+
+        font-size:13px;
+    }
+
+    .service-card p{
+
+        font-size:10.5px;
+    }
+
+    .card-footer{
+
+        margin-top:11px;
+
+        font-size:10px;
+    }
+
+    .card-arrow{
+
+        width:23px;
+        height:23px;
+    }
+
+    .link-grid{
+
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+
+
+<!-- =========================
+     BANNER
+========================= -->
+
+<div class="banner">
+
+    <img
+        src="https://lh3.googleusercontent.com/p/AF1QipPFA0Tuu9ffla99leaOOAqqD-jIZ_UHXO_o0FWR=s1360-w1360-h1020-rw"
+        alt="Jana Online Service Banner"
+  style="width:100%"  >
+
+</div>
+
+
+<!-- =========================
+     WELCOME BAR
+========================= -->
+
+<div class="welcome-bar">
+
+    <div class="welcome-text">
+
+        Welcome To JANA ONLINE SERVICE
+        &nbsp;&nbsp; | &nbsp;&nbsp;
+        Support 24 × 7 Days
+        &nbsp;&nbsp; | &nbsp;&nbsp;
+        Toll Free: 18000 963256
+        &nbsp;&nbsp; | &nbsp;&nbsp;
+        Contact: 9907992247 / 6297726894
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     SERVICE SECTION
+========================= -->
+
+<section class="service-section">
+
+<div class="service-container">
+
+
+    <!-- HEADER -->
+
+    <div class="service-header">
+
+        <div class="service-badge">
+
+            ⚡ Online Service Center
+
+        </div>
+
+
+        <h1>
+
+            Jana Online
+            <span>Service</span>
+
+        </h1>
+
+
+        <p>
+
+            আপনার প্রয়োজনীয় Online ও Digital Services
+            এক জায়গায়। নিচের Service-এ ক্লিক করে
+            প্রয়োজনীয় কাজের অপশন নির্বাচন করুন।
+
+        </p>
+
+    </div>
+
+
+
+    <!-- TOOLBAR -->
+
+    <div class="service-toolbar">
+
+        <div
+            class="service-count"
+            id="serviceCount"
+        >
+            0 Services Available
+        </div>
+
+
+        <div class="search-box">
+
+            <span class="search-icon">
+                🔍
+            </span>
+
+            <input
+                type="text"
+                id="serviceSearch"
+                placeholder="Search service..."
+            >
+
+        </div>
+
+    </div>
+
+
+
+    <!-- SERVICE GRID -->
+
+    <div
+        class="service-grid"
+        id="serviceGrid"
+    ></div>
+
+
+    <!-- NO RESULT -->
+
+    <div
+        class="no-result"
+        id="noResult"
+    >
+
+        <div
+            style="
+            font-size:35px;
+            margin-bottom:10px;
+            "
+        >
+            🔎
+        </div>
+
+        <strong>
+            Service Not Found
+        </strong>
+
+        <p style="margin-top:5px;">
+            অন্য কোনো service name দিয়ে search করুন।
+        </p>
+
+    </div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     MODAL
+========================= -->
+
+<div
+    class="modal-overlay"
+    id="modalOverlay"
+>
+
+<div class="service-modal">
+
+
+    <!-- MODAL HEADER -->
+
+    <div class="modal-header">
+
+
+        <div class="modal-title-area">
+
+
+            <div
+                class="modal-icon"
+                id="modalIcon"
+            >
+                ⚡
+            </div>
+
+
+            <div>
+
+                <h2 id="modalTitle">
+                    Service
+                </h2>
+
+                <p id="modalDescription">
+                    Select an option
                 </p>
 
             </div>
 
         </div>
+
+
+        <button
+            class="close-btn"
+            id="closeModal"
+        >
+            ×
+        </button>
+
+
+    </div>
+
+
+
+    <!-- MODAL BODY -->
+
+    <div class="modal-body">
+
+        <div class="modal-label">
+
+            Select Service Option
+
+        </div>
+
+
+        <div
+            class="link-grid"
+            id="linkGrid"
+        ></div>
+
+    </div>
+
+
+
+    <!-- MODAL FOOTER -->
+
+    <div class="modal-footer">
+
+
+        <div class="contact-buttons">
+
+            <a
+                href="#"
+                id="callBtn"
+                class="contact-btn call-btn"
+            >
+                📞 Call
+            </a>
+
+
+            <a
+                href="#"
+                id="whatsappBtn"
+                class="contact-btn whatsapp-btn"
+                target="_blank"
+            >
+                💬 WhatsApp
+            </a>
+
+        </div>
+
+
+        <div class="modal-note">
+
+            Links open in new tab
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+</div>
+
+
+
+<script>
+
+/* =====================================================
+   CONTACT DETAILS
+===================================================== */
+
+const PHONE =
+    "9907992247";
+
+const WHATSAPP =
+    "919907992247";
+
+
+/* =====================================================
+   SERVICE DATA
+===================================================== */
+
+const services = [
+
+{
+    name:"UTI PAN Card Service",
+
+    description:
+        "Apply, Correction, Download & PAN Status",
+
+    icon:"🪪",
+
+    links:[
+
+        {
+            title:"Apply PAN",
+            description:"New PAN Apply",
+            url:"https://eminencedigitech.com/members/login"
+        },
+
+        {
+            title:"Correction",
+            description:"PAN Correction",
+            url:"https://www.pan.utiitsl.com/PAN_ONLINE/addresschangeHome.action"
+        },
+
+        {
+            title:"Download",
+            description:"E-PAN Download",
+            url:"https://www.pan.utiitsl.com/PAN_ONLINE/ePANCardHome"
+        },
+
+        {
+            title:"PAN Status",
+            description:"Check PAN Status",
+            url:"https://www.trackpan.utiitsl.com/PANONLINE/forms/TrackPan/trackApp#forward"
+        },
+
+        {
+            title:"UTI Portal",
+            description:"Official Portal",
+            url:"https://www.pan.utiitsl.com/"
+        }
+
+    ]
+},
+
+
+{
+    name:"NSDL PAN Card Service",
+
+    description:
+        "Apply, Correction, Download & PAN Status",
+
+    icon:"🪪",
+
+    links:[
+
+        {
+            title:"Apply PAN",
+            description:"New PAN Apply",
+            url:"https://eminencedigitech.com/members/login"
+        },
+
+        {
+            title:"Correction",
+            description:"PAN Correction",
+            url:"https://onlineservices.proteantech.in/paam/endUserAddressUpdate.html"
+        },
+
+        {
+            title:"Download",
+            description:"E-PAN Download",
+            url:"https://onlineservices.proteantech.in/paam/requestAndDownloadEPAN.html"
+        },
+
+        {
+            title:"PAN Status",
+            description:"Check PAN Status",
+            url:"https://tin.tin.proteantech.in/pantan/StatusTrack.html"
+        },
+
+        {
+            title:"NSDL Portal",
+            description:"Official Portal",
+            url:"https://onlineservices.proteantech.in/paam/endUserRegisterContact.html"
+        }
+
+    ]
+},
+
+
+{
+    name:"Voter Card Service",
+
+    description:
+        "New Voter ID, Search Name & Electoral Roll",
+
+    icon:"🗳️",
+
+    links:[
+
+        {
+            title:"New Voter ID",
+            description:"New Voter Registration",
+            url:"https://voters.eci.gov.in/form6"
+        },
+
+        {
+            title:"Search Name",
+            description:"Search Your Name",
+            url:"https://electoralsearch.eci.gov.in/uesfmempmlkypo"
+        },
+
+        {
+            title:"Electoral Roll",
+            description:"Download Electoral Roll",
+            url:"https://voters.eci.gov.in/download-eroll"
+        }
+
+    ]
+},
+
+
+{
+    name:"Aadhaar Service",
+
+    description:
+        "Aadhaar Download, Update & Status",
+
+    icon:"🆔",
+
+    links:[
+
+        {
+            title:"My Aadhaar Login",
+            description:"Aadhaar Online Services",
+            url:"https://myaadhaar.uidai.gov.in/"
+        },
+
+        {
+            title:"Verify Mobile / Email",
+            description:"Verify Aadhaar Details",
+            url:"https://myaadhaar.uidai.gov.in/verify-email-mobile/en"
+        },
+
+        {
+            title:"Check Status",
+            description:"Aadhaar Status",
+            url:"https://myaadhaar.uidai.gov.in/CheckAadhaarStatus/en"
+        },
+
+        {
+            title:"Aadhaar DBT Link",
+            description:"Bank DBT Services",
+            url:"https://www.npci.org.in/"
+        },
+
+        {
+            title:"Aadhaar Login",
+            description:"Aadhaar Portal Login",
+            url:"https://myaadhaar.uidai.gov.in/login"
+        }
+
+    ]
+},
+
+
+{
+    name:"Ration Card Service",
+
+    description:
+        "New Apply, Update, Download & Status",
+
+    icon:"🍚",
+
+    links:[
+
+        {
+            title:"Apply New",
+            description:"New Ration Card",
+            url:"https://wbpds.wb.gov.in/rcmsnew/AadhaarAuthenticationLogin/Index"
+        },
+
+        {
+            title:"Update Information",
+            description:"Ration Card Correction",
+            url:"https://wbpds.wb.gov.in/Benificiary_Deatils_Update_by_Aadhaar.aspx"
+        },
+
+        {
+            title:"Download",
+            description:"Ration Card Download",
+            url:"https://wbpds.wb.gov.in/E_Card_Download.aspx"
+        },
+
+        {
+            title:"Aadhaar Link",
+            description:"Ration Aadhaar Link",
+            url:"https://wbpds.wb.gov.in/Ekyc_otp.aspx"
+        },
+
+        {
+            title:"Status Check",
+            description:"Application Status",
+            url:"https://wbpds.wb.gov.in/CheckApplicationStatus.aspx"
+        }
+
+    ]
+},
+
+
+{
+    name:"Train Ticket Booking",
+
+    description:
+        "IRCTC, PNR & Agent Interface",
+
+    icon:"🚆",
+
+    links:[
+
+        {
+            title:"IRCTC",
+            description:"Train Booking",
+            url:"https://www.irctc.co.in/"
+        },
+
+        {
+            title:"PNR Status",
+            description:"Check PNR Status",
+            url:"https://indianrail.gov.in/enquiry/PNR/PnrEnquiry.html"
+        },
+
+        {
+            title:"IRCTC Agent",
+            description:"Agent Interface",
+            url:"https://www.operations.irctc.co.in/AgentInterface/mainpage.jsf"
+        }
+
+    ]
+},
+
+
+{
+    name:"Bus Ticket Booking",
+
+    description:
+        "Online & Intercity Bus Booking",
+
+    icon:"🚌",
+
+    links:[
+
+        {
+            title:"RedBus",
+            description:"Online Bus Booking",
+            url:"https://www.redbus.in/"
+        },
+
+        {
+            title:"State Transport",
+            description:"West Bengal Transport",
+            url:"https://www.wbtransport.gov.in/"
+        }
+
+    ]
+},
+
+
+{
+    name:"JOB CARD",
+
+    description:
+        "Job Card Search & Website",
+
+    icon:"💼",
+
+    links:[
+
+        {
+            title:"Job Card Search",
+            description:"Search Job Card",
+            url:"https://mnregaweb2.dord.gov.in/netnrega/writereaddata/state_out/jobcardreg_3216026008_eng.html"
+        },
+
+        {
+            title:"Job Card Website",
+            description:"MGNREGA Official Website",
+            url:"https://nrega.dord.gov.in/MGNREGA_new/Nrega_home.aspx"
+        }
+
+    ]
+},
+
+
+{
+    name:"DTH Recharge",
+
+    description:
+        "Tata Sky & Dish TV Recharge",
+
+    icon:"📺",
+
+    links:[
+
+        {
+            title:"Tata Play",
+            description:"DTH Recharge",
+            url:"https://www.tataplay.com/"
+        },
+
+        {
+            title:"Dish TV",
+            description:"DTH Recharge",
+            url:"https://www.dishtv.in/"
+        }
+
+    ]
+},
+
+
+{
+    name:"Electricity Bill Pay",
+
+    description:
+        "WBSEDCL Bill Payment & Services",
+
+    icon:"💡",
+
+    links:[
+
+        {
+            title:"WBSEDCL",
+            description:"Electricity Services",
+            url:"https://www.wbsedcl.in/"
+        },
+
+        {
+            title:"Bill Pay",
+            description:"Online Electricity Bill",
+            url:"https://portal.wbsedcl.in/onlinepay/OnlineBillPay.jsp"
+        },
+
+        {
+            title:"Consumer Login",
+            description:"Consumer Account",
+            url:"https://portal.wbsedcl.in/ConsumerLogin/Consumer_Login.jsp"
+        },
+
+        {
+            title:"Payment Receipt",
+            description:"Download Receipt",
+            url:"https://portal.wbsedcl.in/webdynpro/resources/wbsedcl/wbpaymentreceipt/ViewPaymentReceipt"
+        },
+
+        {
+            title:"No Dues Certificate",
+            description:"Electricity No Dues",
+            url:"https://portal.wbsedcl.in/irj/go/km/docs/bills/IFRAME/NoDuesCertificate.html"
+        }
+
+    ]
+},
+
+
+{
+    name:"Loan Payment / EMI",
+
+    description:
+        "Bank Loan & EMI Payment",
+
+    icon:"🏦",
+
+    links:[
+
+        {
+            title:"HDFC Bank",
+            description:"EMI / Bank Services",
+            url:"https://www.hdfcbank.com/"
+        },
+
+        {
+            title:"SBI Loan Pay",
+            description:"SBI Online Services",
+            url:"https://www.onlinesbi.com/"
+        }
+
+    ]
+},
+
+
+{
+    name:"Land Records",
+
+    description:
+        "Khatian, Plot & Land Information",
+
+    icon:"🌍",
+
+    links:[
+
+        {
+            title:"Banglarbhumi",
+            description:"West Bengal Land Records",
+            url:"https://banglarbhumi.gov.in/"
+        }
+
+    ]
+},
+
+
+{
+    name:"Caste Certificate",
+
+    description:
+        "SC / ST / OBC Apply & Download",
+
+    icon:"📜",
+
+    links:[
+
+        {
+            title:"OBC Apply",
+            description:"OBC Certificate Apply",
+            url:"https://castcertificatewb.gov.in/application_revalidate"
+        },
+
+        {
+            title:"SC / ST Apply",
+            description:"SC/ST Certificate Apply",
+            url:"https://castcertificatewb.gov.in/application"
+        },
+
+        {
+            title:"SC / ST Search",
+            description:"Search Application",
+            url:"https://castcertificatewb.gov.in/searchapplication/viewcertificatedetails"
+        },
+
+        {
+            title:"OBC Search",
+            description:"Search Application",
+            url:"https://castcertificatewb.gov.in/searchapplication/viewcertificatedetails"
+        },
+
+        {
+            title:"SC / ST Download",
+            description:"Download Certificate",
+            url:"https://castcertificatewb.gov.in/downlaodsigncertificate"
+        },
+
+        {
+            title:"OBC Download",
+            description:"Download Certificate",
+            url:"https://castcertificatewb.gov.in/downlaod_signcertificate"
+        },
+
+        {
+            title:"Caste Portal",
+            description:"Official Portal",
+            url:"https://castcertificatewb.gov.in/"
+        }
+
+    ]
+},
+
+
+{
+    name:"Online Work Services",
+
+    description:
+        "Freelance & Online Document Services",
+
+    icon:"💻",
+
+    links:[
+
+        {
+            title:"Upwork",
+            description:"Freelance Work",
+            url:"https://www.upwork.com/"
+        },
+
+        {
+            title:"Jana Online Service",
+            description:"Online Form & Document Help",
+            url:"https://www.janaonlineservice.in/"
+        }
+
+    ]
+},
+
+
+{
+    name:"Government Schemes",
+
+    description:
+        "Government Scheme Online Services",
+
+    icon:"🏛️",
+
+    links:[
+
+        {
+            title:"Anandadhara / Scheme Portal",
+            description:"West Bengal Government",
+            url:"https://socialsecurity.wb.gov.in/"
+        },
+
+        {
+            title:"Yuba Sathi",
+            description:"Banglar Yuba Sathi",
+            url:"https://yubasathi.wb.gov.in/"
+        },
+
+        {
+            title:"Ayushman Card",
+            description:"Ayushman Bharat",
+            url:"https://beneficiary.nha.gov.in/"
+        }
+
+    ]
+}
+
+];
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const serviceGrid =
+    document.getElementById(
+        "serviceGrid"
+    );
+
+const serviceSearch =
+    document.getElementById(
+        "serviceSearch"
+    );
+
+const serviceCount =
+    document.getElementById(
+        "serviceCount"
+    );
+
+const noResult =
+    document.getElementById(
+        "noResult"
+    );
+
+
+const modalOverlay =
+    document.getElementById(
+        "modalOverlay"
+    );
+
+const closeModal =
+    document.getElementById(
+        "closeModal"
+    );
+
+const modalIcon =
+    document.getElementById(
+        "modalIcon"
+    );
+
+const modalTitle =
+    document.getElementById(
+        "modalTitle"
+    );
+
+const modalDescription =
+    document.getElementById(
+        "modalDescription"
+    );
+
+const linkGrid =
+    document.getElementById(
+        "linkGrid"
+    );
+
+const callBtn =
+    document.getElementById(
+        "callBtn"
+    );
+
+const whatsappBtn =
+    document.getElementById(
+        "whatsappBtn"
+    );
+
+
+/* =====================================================
+   CREATE SERVICE CARDS
+===================================================== */
+
+function renderServices(list){
+
+    serviceGrid.innerHTML = "";
+
+    serviceCount.textContent =
+        `${list.length} Services Available`;
+
+
+    if(list.length === 0){
+
+        noResult.style.display =
+            "block";
+
+        return;
+
+    }
+
+
+    noResult.style.display =
+        "none";
+
+
+    list.forEach(
+        (service,index)=>{
+
+            const card =
+                document.createElement(
+                    "article"
+                );
+
+
+            card.className =
+                "service-card";
+
+
+            card.innerHTML = `
+
+                <div>
+
+                    <div class="service-icon">
+
+                        ${service.icon}
+
+                    </div>
+
+
+                    <h3>
+
+                        ${service.name}
+
+                    </h3>
+
+
+                    <p>
+
+                        ${service.description}
+
+                    </p>
+
+                </div>
+
+
+                <div class="card-footer">
+
+                    <span>
+                        View Options
+                    </span>
+
+                    <span class="card-arrow">
+                        →
+                    </span>
+
+                </div>
+
+            `;
+
+
+            card.addEventListener(
+                "click",
+                ()=>{
+                    openService(service);
+                }
+            );
+
+
+            serviceGrid.appendChild(card);
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   OPEN SERVICE MODAL
+===================================================== */
+
+function openService(service){
+
+    modalIcon.textContent =
+        service.icon;
+
+    modalTitle.textContent =
+        service.name;
+
+    modalDescription.textContent =
+        service.description;
+
+
+    linkGrid.innerHTML = "";
+
+
+    service.links.forEach(
+        link=>{
+
+            const a =
+                document.createElement(
+                    "a"
+                );
+
+
+            a.className =
+                "service-link";
+
+
+            a.href =
+                link.url;
+
+
+            a.target =
+                "_blank";
+
+
+            a.rel =
+                "noopener noreferrer";
+
+
+            a.innerHTML = `
+
+                <strong>
+                    ${link.title}
+                </strong>
+
+                <span>
+                    ${link.description}
+                </span>
+
+            `;
+
+
+            linkGrid.appendChild(a);
+
+        }
+    );
+
+
+    callBtn.href =
+        `tel:${PHONE}`;
+
+
+    const message =
+        `Hello, I want help regarding ${service.name}`;
+
+
+    whatsappBtn.href =
+        `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`;
+
+
+    modalOverlay.classList.add(
+        "active"
+    );
+
+
+    document.body.style.overflow =
+        "hidden";
+
+}
+
+
+/* =====================================================
+   CLOSE MODAL
+===================================================== */
+
+function closeServiceModal(){
+
+    modalOverlay.classList.remove(
+        "active"
+    );
+
+
+    document.body.style.overflow =
+        "";
+}
+
+
+closeModal.addEventListener(
+    "click",
+    closeServiceModal
+);
+
+
+modalOverlay.addEventListener(
+    "click",
+    event=>{
+
+        if(
+            event.target ===
+            modalOverlay
+        ){
+
+            closeServiceModal();
+
+        }
+
+    }
+);
+
+
+document.addEventListener(
+    "keydown",
+    event=>{
+
+        if(
+            event.key ===
+            "Escape"
+        ){
+
+            closeServiceModal();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+serviceSearch.addEventListener(
+    "input",
+    function(){
+
+        const search =
+            this.value
+                .trim()
+                .toLowerCase();
+
+
+        const filtered =
+            services.filter(
+                service=>{
+
+                    return (
+
+                        service.name
+                            .toLowerCase()
+                            .includes(search)
+
+                        ||
+
+                        service.description
+                            .toLowerCase()
+                            .includes(search)
+
+                    );
+
+                }
+            );
+
+
+        renderServices(
+            filtered
+        );
+
+    }
+);
+
+
+/* =====================================================
+   INITIAL LOAD
+===================================================== */
+
+renderServices(
+    services
+);
+
+</script>
+
+
 
 
 
@@ -1370,6 +3574,12 @@ function maskAadhaar(value) {
 
 }
 </script>
+    
+
+
+
+
+
 
 </body>
 </html>
