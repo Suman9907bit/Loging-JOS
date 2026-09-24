@@ -1902,7 +1902,8 @@ input{
     <div class="brand-area">
 
         <div class="brand-logo">
-            🌐
+            <image src="https://lh3.googleusercontent.com/p/AF1QipP1F4BrDvZdgpO1RDoGI2DFyJjnrfBmpkjeKwZN=s1360-w1360-h1020-rw"width="40px">
+
         </div>
 
         <div>
@@ -1910,7 +1911,17 @@ input{
             <div class="site-name">
                 Jana Online Service
             </div>
+ <div
+                id="miniName"
+                class="user-mini-name"
+            ></div>
+            <div class="online">
 
+                <span class="online-dot"></span>
+
+                Online
+
+            </div>
             <div class="site-subtitle">
                 Digital Service & User Portal
             </div>
@@ -1934,20 +1945,9 @@ input{
 
         <div class="user-mini-info">
 
-            <div
-                id="miniName"
-                class="user-mini-name"
-            >
-                User
-            </div>
-
-            <div class="online">
-
-                <span class="online-dot"></span>
-
-                Online
-
-            </div>
+           
+               
+            
 
         </div>
 
@@ -2017,10 +2017,10 @@ input{
         <div class="profile-detail">
 
             <small>
-                Date of Birth
+                Registration Date
             </small>
 
-            <strong id="dDob"></strong>
+            <strong id="dRegistrationdate"></strong>
 
         </div>
 
@@ -2061,10 +2061,10 @@ input{
         <div class="profile-detail">
 
             <small>
-                Aadhaar
+                Mobile No
             </small>
 
-            <strong id="dAadhaar"></strong>
+            <strong id="dMobile"></strong>
 
         </div>
 
@@ -3262,10 +3262,13 @@ function openDashboard(
 
 
     document.getElementById(
-        "dDob"
-    ).textContent =
-    user.DOB ||
-    "Not provided";
+    "dRegistrationdate"
+).textContent =
+formatRegistrationDate(
+    user.RegistrationDate ||
+    user["Registration Date"] ||
+    "Not provided"
+);
 
 
     document.getElementById(
@@ -3291,11 +3294,11 @@ function openDashboard(
 
 
     document.getElementById(
-        "dAadhaar"
+        "dMobile"
     ).textContent =
-    user.Aadhaar
-    ? maskAadhaar(user.Aadhaar)
-    : "Not provided";
+    user.Mobile ||
+    "Not provided";
+
 
 
     /*
@@ -4249,6 +4252,31 @@ function escapeHTML(value){
         "&#039;"
     );
 
+}
+    /* =====================================================
+   REGISTRATION DATE FORMAT
+===================================================== */
+
+function formatRegistrationDate(value){
+
+    if(!value){
+        return "Not provided";
+    }
+
+    const date = new Date(value);
+
+    if(isNaN(date.getTime())){
+        return String(value);
+    }
+
+    return date.toLocaleDateString(
+        "en-IN",
+        {
+            day:"2-digit",
+            month:"2-digit",
+            year:"numeric"
+        }
+    );
 }
 
 </script>
