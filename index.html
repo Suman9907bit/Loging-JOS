@@ -38,234 +38,369 @@ input{
    LOGIN
 ===================================================== */
 
+/* =====================================================
+   LOGIN
+   PROFESSIONAL LEFT IMAGE + RIGHT LOGIN
+===================================================== */
+
 .login-page{
     min-height:100vh;
+    width:100%;
     display:flex;
-    justify-content:center;
     align-items:center;
-    padding:20px;
-
+    justify-content:center;
+    padding:24px;
     background:
-        linear-gradient(
-            135deg,
-            #032b35,
-            #008b9a,
-            #063743
-        );
+        radial-gradient(circle at top left,#e4f8fa 0,#f5fafb 45%,#eef5f7 100%);
+}
+
+.login-container{
+    width:100%;
+    max-width:1120px;
+    min-height:620px;
+    display:flex;
+    overflow:hidden;
+    background:#fff;
+    border:1px solid #dfecef;
+    border-radius:26px;
+    box-shadow:0 24px 70px rgba(0,55,70,.18);
+}
+
+.login-image{
+    position:relative;
+    width:55%;
+    min-height:620px;
+    display:flex;
+    align-items:flex-end;
+    padding:48px;
+    overflow:hidden;
+    background:
+        linear-gradient(120deg,rgba(0,50,60,.78),rgba(0,126,143,.30)),
+        url("https://mir-s3-cdn-cf.behance.net/project_modules/source/879df8105642271.5f7db84be8463.gif")
+        center/cover no-repeat;
+}
+
+.login-image::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,30,40,.76));
+}
+
+.login-image-content{
+    position:relative;
+    z-index:2;
+    max-width:510px;
+    color:#fff;
+}
+
+.login-image-content .badge{
+    display:inline-block;
+    padding:8px 15px;
+    margin-bottom:15px;
+    border:1px solid rgba(255,255,255,.35);
+    border-radius:30px;
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(8px);
+    font-size:12px;
+    font-weight:800;
+}
+
+.login-image-content h2{
+    margin:0 0 13px;
+    font-size:clamp(30px,4vw,48px);
+    line-height:1.12;
+}
+
+.login-image-content h2 span{
+    color:#70f4ff;
+}
+
+.login-image-content p{
+    margin:0;
+    max-width:480px;
+    color:#e9fbfd;
+    font-size:14px;
+    line-height:1.7;
+}
+
+.login-section{
+    width:45%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:48px;
+    background:#fff;
 }
 
 .login-box{
     width:100%;
-    max-width:430px;
-
+    max-width:390px;
+    padding:0;
     background:#fff;
-
-    padding:34px;
-
-    border-radius:24px;
-
-    box-shadow:
-        0 25px 70px
-        rgba(0,0,0,.35);
 }
 
 .login-logo{
-    width:78px;
-    height:78px;
-
-    margin:0 auto 18px;
-
+    width:76px;
+    height:76px;
+    margin:0 auto 16px;
     display:flex;
     align-items:center;
     justify-content:center;
-
-    border-radius:50%;
-
-    background:
-        linear-gradient(
-            135deg,
-            #008b9a,
-            #005b67
-        );
-
+    border-radius:20px;
+    background:linear-gradient(135deg,#008b9a,#005b67);
     color:#fff;
-
-    font-size:34px;
-
-    box-shadow:
-        0 10px 25px
-        rgba(0,139,154,.3);
+    font-size:24px;
+    font-weight:800;
+    box-shadow:0 12px 28px rgba(0,139,154,.25);
 }
 
 .login-box h1{
+    margin:0;
     text-align:center;
-
-    font-size:27px;
-
     color:#123844;
+    font-size:28px;
 }
 
 .login-box>p{
+    margin:7px 0 28px;
     text-align:center;
-
     color:#75858d;
-
-    margin:7px 0 25px;
+    font-size:14px;
 }
 
 .login-group{
-    margin-bottom:17px;
+    margin-bottom:18px;
 }
 
 .login-group label{
     display:block;
-
     margin-bottom:7px;
-
+    color:#304b54;
+    font-size:13px;
     font-weight:700;
-
-    font-size:14px;
 }
 
 .login-group input{
     width:100%;
-
-    padding:14px;
-
-    border:
-        1px solid
-        #d6e1e5;
-
-    border-radius:11px;
-
+    height:52px;
+    padding:0 15px;
+    border:1px solid #d6e1e5;
+    border-radius:12px;
     outline:none;
-
+    background:#f9fcfd;
+    color:#172b35;
     font-size:15px;
-
-    transition:.2s;
+    transition:.25s;
 }
 
 .login-group input:focus{
     border-color:#0097a7;
-
-    box-shadow:
-        0 0 0 4px
-        rgba(0,151,167,.1);
+    background:#fff;
+    box-shadow:0 0 0 4px rgba(0,151,167,.10);
 }
 
 .login-btn{
     width:100%;
-
+    height:53px;
     border:0;
-
-    padding:14px;
-
-    border-radius:11px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #008b9a,
-            #006572
-        );
-
+    border-radius:12px;
+    background:linear-gradient(135deg,#008b9a,#006572);
     color:#fff;
-
     font-size:16px;
-
-    font-weight:700;
-
+    font-weight:800;
     cursor:pointer;
-
-    transition:.2s;
+    transition:.25s;
+    box-shadow:0 10px 25px rgba(0,111,125,.20);
 }
 
 .login-btn:hover{
     transform:translateY(-2px);
-
-    box-shadow:
-        0 8px 20px
-        rgba(0,111,125,.25);
+    box-shadow:0 14px 30px rgba(0,111,125,.28);
 }
 
 .login-btn:disabled{
     opacity:.7;
-
     cursor:not-allowed;
+    transform:none;
 }
 
 .login-message{
     display:none;
-
     padding:12px;
-
-    border-radius:10px;
-
     margin-bottom:15px;
-
+    border-radius:10px;
     text-align:center;
-
     font-size:13px;
-
     font-weight:600;
 }
 
 .login-error{
     background:#fee2e2;
-
     color:#b91c1c;
 }
 
 .login-links{
-    margin-top:15px;
-
+    margin-top:17px;
     display:flex;
-
     flex-direction:column;
-
     gap:9px;
 }
 
 .login-links a{
-    text-decoration:none;
-
-    text-align:center;
-
+    display:block;
     padding:11px;
-
-    border-radius:9px;
-
+    border-radius:10px;
+    text-align:center;
+    text-decoration:none;
+    font-size:13px;
     font-weight:600;
+    transition:.2s;
+}
 
-    font-size:14px;
+.login-links a:hover{
+    transform:translateY(-1px);
 }
 
 .signup-btn{
     color:#008b9a;
-
-    border:
-        1px solid
-        #008b9a;
+    border:1px solid #008b9a;
 }
 
 .status-btn{
     color:#334155;
-
-    border:
-        1px solid
-        #d0d9df;
+    border:1px solid #d0d9df;
 }
 
 .login-info{
     margin-top:18px;
-
     text-align:center;
-
     color:#7b8a91;
-
-    font-size:12px;
+    font-size:11px;
+    line-height:1.5;
 }
 
+@media(max-width:850px){
+    .login-container{
+        max-width:760px;
+        min-height:560px;
+    }
+
+    .login-image{
+        width:48%;
+        min-height:560px;
+        padding:34px;
+    }
+
+    .login-section{
+        width:52%;
+        padding:34px;
+    }
+
+    .login-image-content h2{
+        font-size:32px;
+    }
+}
+
+@media(max-width:650px){
+    .login-page{
+        min-height:100vh;
+        padding:14px;
+    }
+
+    .login-container{
+        display:block;
+        max-width:500px;
+        min-height:auto;
+        border-radius:22px;
+    }
+
+    .login-image{
+        width:100%;
+        min-height:220px;
+        height:220px;
+        padding:25px;
+        align-items:flex-end;
+    }
+
+    .login-image-content h2{
+        font-size:27px;
+    }
+
+    .login-image-content p{
+        font-size:12px;
+        line-height:1.5;
+    }
+
+    .login-section{
+        width:100%;
+        padding:34px 25px;
+    }
+}
+
+@media(max-width:420px){
+    .login-image{
+        height:185px;
+        min-height:185px;
+    }
+
+    .login-image-content .badge{
+        padding:6px 11px;
+        font-size:10px;
+    }
+
+    .login-image-content h2{
+        font-size:23px;
+    }
+
+    .login-image-content p{
+        display:none;
+    }
+
+    .login-section{
+        padding:30px 20px;
+    }
+
+    .login-box h1{
+        font-size:24px;
+    }
+}
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media(max-width:420px){
+
+    .login-image{
+        height:185px;
+
+        min-height:185px;
+    }
+
+    .login-image-content .badge{
+        font-size:10px;
+
+        padding:6px 11px;
+    }
+
+    .login-image-content h2{
+        font-size:23px;
+    }
+
+    .login-image-content p{
+        display:none;
+    }
+
+    .login-section{
+        padding:30px 20px;
+    }
+
+    .login-box h1{
+        font-size:24px;
+    }
+
+}
 
 /* =====================================================
    DASHBOARD
@@ -1782,110 +1917,111 @@ input{
 <body>
 
 
+
 <!-- =====================================================
-     LOGIN
+     PROFESSIONAL LOGIN
 ===================================================== -->
 
-<section
-    class="login-page"
-    id="loginPage"
->
+<section class="login-page" id="loginPage">
 
-    <div class="login-box">
+    <div class="login-container">
 
-        <div class="login-logo">
-            👤
-        </div>
+        <div class="login-image">
+            <div class="login-image-content">
 
-        <h1>
-            User Login
-        </h1>
+                <div class="badge">
+                    ⚡ JANA ONLINE SERVICE
+                </div>
 
-        <p>
-            Login to access your JOS account
-        </p>
+                <h2>
+                    Digital Services
+                    <span>Made Simple</span>
+                </h2>
 
-        <div
-            id="loginMessage"
-            class="login-message"
-        ></div>
-
-        <form id="loginForm">
-
-            <div class="login-group">
-
-                <label>
-                    User ID
-                </label>
-
-                <input
-                    type="text"
-                    id="loginUserId"
-                    placeholder="Enter User ID"
-                    autocomplete="username"
-                    required
-                >
+                <p>
+                    আপনার প্রয়োজনীয় Online ও Digital Services
+                    এক জায়গায়। আপনার account থেকে available
+                    service নির্বাচন করে সহজেই কাজ শুরু করুন।
+                </p>
 
             </div>
-
-
-            <div class="login-group">
-
-                <label>
-                    Password
-                </label>
-
-                <input
-                    type="password"
-                    id="loginPassword"
-                    placeholder="Enter Password"
-                    autocomplete="current-password"
-                    required
-                >
-
-            </div>
-
-
-            <button
-                class="login-btn"
-                type="submit"
-            >
-                LOGIN
-            </button>
-
-        </form>
-
-
-        <div class="login-links">
-
-            <a
-                href="https://suman9907bit.github.io/Registration-jos/"
-                class="signup-btn"
-            >
-                👤 Sign Up / Registration Now
-            </a>
-
-            <a
-                href="https://suman9907bit.github.io/Registration-jos/"
-                class="status-btn"
-            >
-                📋 Application Status
-            </a>
-
         </div>
 
+        <div class="login-section">
 
-        <div class="login-info">
+            <div class="login-box">
 
-            Your account must be activated by Admin before login.
+                <div class="login-logo">
+                    JOS
+                </div>
+
+                <h1>User Login</h1>
+
+                <p>Login to access your JOS account</p>
+
+                <div id="loginMessage" class="login-message"></div>
+
+                <form id="loginForm">
+
+                    <div class="login-group">
+                        <label for="loginUserId">User ID</label>
+                        <input
+                            type="text"
+                            id="loginUserId"
+                            placeholder="Enter User ID"
+                            autocomplete="username"
+                            required
+                        >
+                    </div>
+
+                    <div class="login-group">
+                        <label for="loginPassword">Password</label>
+                        <input
+                            type="password"
+                            id="loginPassword"
+                            placeholder="Enter Password"
+                            autocomplete="current-password"
+                            required
+                        >
+                    </div>
+
+                    <button class="login-btn" type="submit">
+                        LOGIN
+                    </button>
+
+                </form>
+
+                <div class="login-links">
+
+                    <a
+                        href="https://suman9907bit.github.io/Registration-jos/"
+                        class="signup-btn"
+                    >
+                        👤 Sign Up / Registration Now
+                    </a>
+
+                    <a
+                        href="https://suman9907bit.github.io/Registration-jos/"
+                        class="status-btn"
+                    >
+                        📋 Application Status
+                    </a>
+
+                </div>
+
+                <div class="login-info">
+                    🔐 Your account must be activated by Admin before login.
+                    <br>
+                    Jana Online Service • Secure User Portal
+                </div>
+
+            </div>
 
         </div>
 
     </div>
 
 </section>
-
-
 
 <!-- =====================================================
      DASHBOARD
@@ -1902,7 +2038,7 @@ input{
     <div class="brand-area">
 
         <div class="brand-logo">
-            <image src="https://lh3.googleusercontent.com/p/AF1QipP1F4BrDvZdgpO1RDoGI2DFyJjnrfBmpkjeKwZN=s1360-w1360-h1020-rw"width="40px">
+            <img src="https://lh3.googleusercontent.com/p/AF1QipP1F4BrDvZdgpO1RDoGI2DFyJjnrfBmpkjeKwZN=s1360-w1360-h1020-rw" width="40" alt="JOS Logo">
 
         </div>
 
@@ -1921,9 +2057,9 @@ input{
 
                 Online
 
-            </div>
-            <div class="site-subtitle">
-                Digital Service & User Portal
+          
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="site-subtitle">
+                Digital Service & User Portal  </span>
             </div>
 
         </div>
@@ -4280,6 +4416,8 @@ function formatRegistrationDate(value){
 }
 
 </script>
+
+
 
 </body>
 </html>
